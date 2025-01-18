@@ -1,3 +1,6 @@
+import { FaLocationPin } from "react-icons/fa6";
+import logo from "../../assets/logo.png";
+
 const NavBar = () => {
   return (
     <nav
@@ -5,13 +8,9 @@ const NavBar = () => {
       data-navbar-on-scroll='data-navbar-on-scroll'>
       <div className='container'>
         <a className='navbar-brand d-inline-flex' href='index.html'>
-          <img
-            className='d-inline-block'
-            src='assets/img/gallery/logo.svg'
-            alt='logo'
-          />
+          <img className='d-inline-block' src={logo} alt='logo' width={50} />
           <span className='text-1000 fs-3 fw-bold ms-2 text-gradient'>
-            foodwaGon
+            Sithume
           </span>
         </a>
         <button
@@ -32,7 +31,9 @@ const NavBar = () => {
               Deliver to:{" "}
               <i className='fas fa-map-marker-alt text-warning mx-2'></i>
               <span className='fw-normal'>Current Location </span>
-              <span>Mirpur 1 Bus Stand, Dhaka</span>
+              <span>
+                Your location <FaLocationPin />
+              </span>
             </p>
           </div>
           <form className='d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0'>

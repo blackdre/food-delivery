@@ -1,3 +1,5 @@
+import HeroImage from "../../assets/kota.png";
+
 const Hero = () => {
   return (
     <section className='py-5 overflow-hidden bg-primary' id='home'>
@@ -5,11 +7,7 @@ const Hero = () => {
         <div className='row flex-center'>
           <div className='col-md-5 col-lg-6 order-0 order-md-1 mt-8 mt-md-0'>
             <a className='img-landing-banner' href='#!'>
-              <img
-                className='img-fluid'
-                src='assets/img/gallery/hero-header.png'
-                alt='hero-header'
-              />
+              <img className='img-fluid' src={HeroImage} alt='hero-header' />
             </a>
           </div>
           <div className='col-md-7 col-lg-6 py-8 text-md-start text-center'>
