@@ -1,9 +1,15 @@
 import { Outlet } from "react-router-dom";
+import NavBar from "../ui/NavBar";
+import Footer from "../ui/Footer";
 
 const MainLayout = () => {
   return (
     <div>
-      <Outlet />
+      <main className='main' id='top'>
+        <NavBar />
+        <Outlet />
+        <Footer />
+      </main>
     </div>
   );
 };
