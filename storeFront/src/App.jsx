@@ -20,11 +20,11 @@ const App = () => {
           <Route path='/cart' element={<Cart />} />
         </Route>
       </Routes>
-      <Route element={<AuthLayout />}>
+      <Routes element={<AuthLayout />}>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='reset-password' element={<ResetPassword />} />
-      </Route>
+      </Routes>
     </BrowserRouter>
   );
 };
