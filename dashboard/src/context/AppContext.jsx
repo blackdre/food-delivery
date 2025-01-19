@@ -1,14 +1,14 @@
 // src/context/AppContext.js
 import { createContext } from "react";
 import Logo from "../assets/logo.png";
-import BgImage from "../assets/01.png";
+import BgImage from "../assets/orange.png";
 
 // Create the context
 export const AppContext = createContext();
 
 // Define the provider component
 export const AppProvider = ({ children }) => {
-  const appName = "Admin7";
+  const appName = "Sithume";
   const logo = Logo;
   const bgImage = BgImage;
 

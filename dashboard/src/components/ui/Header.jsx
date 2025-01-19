@@ -1,6 +1,8 @@
-import headerImg from "../../assets/top-header.png";
+import { useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 
 const Header = () => {
+  const { appName, bgImage } = useContext(AppContext);
   return (
     <div className='iq-navbar-header' style={{ height: "215px" }}>
       <div className='container-fluid iq-container'>
@@ -39,7 +41,7 @@ const Header = () => {
       </div>
       <div className='iq-header-img'>
         <img
-          src={headerImg}
+          src={bgImage}
           alt='header'
           className='theme-color-default-img img-fluid w-100 h-100 animated-scaleX'
         />

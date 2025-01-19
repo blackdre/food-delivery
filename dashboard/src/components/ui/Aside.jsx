@@ -11,7 +11,7 @@ import {
   BsPersonWorkspace,
 } from "react-icons/bs";
 import { FaDotCircle, FaHome } from "react-icons/fa";
-import { AppContext } from "../layouts/AppContext";
+import { AppContext } from "../../context/AppContext";
 
 const Aside = () => {
   const { appName, logo } = useContext(AppContext);
@@ -54,7 +54,7 @@ const Aside = () => {
     };
   }, []);
   return (
-    <aside className='sidebar sidebar-default sidebar-dark sidebar-base navs-rounded-all '>
+    <aside className='sidebar sidebar-default sidebar-light sidebar-base navs-rounded-all '>
       <div className='sidebar-header d-flex align-items-center justify-content-start'>
         <Link to={"/"} className='navbar-brand'>
           {/* <!--Logo start--> */}

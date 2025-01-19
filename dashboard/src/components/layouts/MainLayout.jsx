@@ -1,8 +1,16 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Aside from "../ui/Aside";
-import { Navbar } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+import Header from "../ui/Header";
+import Navbar from "../ui/Navbar";
+import { AuthContext } from "../../context/AuthContext";
+import { useContext } from "react";
 
 const MainLayout = () => {
+  const { user } = useContext(AuthContext);
+  if (!user) {
+    return <Navigate to='/login' />;
+  }
   return (
     <>
       <Aside />
@@ -16,7 +24,7 @@ const MainLayout = () => {
             <Outlet />
           </Row>
         </Container>
-        <Toaster position='top-right' />
+        {/* <Toaster position='top-right' /> */}
       </main>
     </>
   );

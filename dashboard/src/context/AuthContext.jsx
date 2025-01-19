@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
     // Subscribe to auth changes
     pb.authStore.onChange(handleAuthChange);
 
-    return () => pb.authStore.offChange(handleAuthChange);
+    return () => pb.authStore.clear(handleAuthChange);
   }, []);
 
   const login = async (email, password) => {

@@ -3,11 +3,11 @@ import { Nav } from "react-bootstrap";
 import { AppContext } from "../../context/AppContext";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
-import { useAuth } from "../../context/AuthProvider";
+import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
   const { logo, appName } = useContext(AppContext);
-  const { user } = useAuth();
+  const { user } = useContext(AuthContext);
   return (
     <Nav className='navbar navbar-expand-xl navbar-light bg-light iq-navbar'>
       <div className='container-fluid navbar-inner'>
@@ -201,9 +201,9 @@ const Navbar = () => {
                   className='theme-color-default-img img-fluid avatar avatar-50 avatar-rounded'
                 />
 
-                <div className='caption ms-3 d-none d-md-block '>
+                {/* <div className='caption ms-3 d-none d-md-block '>
                   <h6 className='mb-0 caption-title'>{user.email}</h6>
-                </div>
+                </div> */}
               </a>
               <ul
                 className='dropdown-menu dropdown-menu-end'

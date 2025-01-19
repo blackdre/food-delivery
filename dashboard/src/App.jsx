@@ -6,6 +6,8 @@ import PrivateRoute from "./components/PrivateRoute";
 import AdminDashboard from "./pages/dashboard/AdminDashboard";
 import VendorDashboard from "./pages/dashboard/VendorDashboard";
 import DriverDashboard from "./pages/dashboard/DriverDashboard";
+import AuthLayout from "./components/layouts/AuthLayout";
+import Login from "./pages/authentication/Login";
 
 const App = () => {
   return (
@@ -37,6 +39,9 @@ const App = () => {
           </PrivateRoute>
         }
       />
+      <Route element={<AuthLayout />}>
+        <Route path='/login' element={<Login />} />
+      </Route>
       <Route path='/unauthorized' element={<Unauthorized />} />
     </Routes>
   );
