@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
     const handleAuthChange = () => {
       setUser(pb.authStore.model);
       setToken(pb.authStore.token);
-      setRole(pb.authStore.model?.role || null);
+      setRole(pb.authStore.role || null);
     };
 
     // Subscribe to auth changes

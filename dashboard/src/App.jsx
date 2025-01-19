@@ -8,6 +8,7 @@ import VendorDashboard from "./pages/dashboard/VendorDashboard";
 import DriverDashboard from "./pages/dashboard/DriverDashboard";
 import AuthLayout from "./components/layouts/AuthLayout";
 import Login from "./pages/authentication/Login";
+import Register from "./pages/authentication/Register";
 
 const App = () => {
   return (
@@ -41,6 +42,7 @@ const App = () => {
       />
       <Route element={<AuthLayout />}>
         <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
       </Route>
       <Route path='/unauthorized' element={<Unauthorized />} />
     </Routes>

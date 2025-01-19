@@ -2,6 +2,7 @@
 import { createContext } from "react";
 import Logo from "../assets/logo.png";
 import BgImage from "../assets/orange.png";
+import AuthBg from "../assets/auth-img.webp";
 
 // Create the context
 export const AppContext = createContext();
@@ -13,7 +14,7 @@ export const AppProvider = ({ children }) => {
   const bgImage = BgImage;
 
   return (
-    <AppContext.Provider value={{ appName, logo, bgImage }}>
+    <AppContext.Provider value={{ appName, logo, bgImage, AuthBg }}>
       {children}
     </AppContext.Provider>
   );
