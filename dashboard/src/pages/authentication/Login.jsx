@@ -1,8 +1,32 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../../context/AppContext";
+import Input from "../../components/ui/Input";
+import { Button, Form, Row } from "react-bootstrap";
+import { AuthContext } from "../../context/AuthContext";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const { appName, logo } = useContext(AppContext);
+  const { login } = useContext(AuthContext);
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  // handle submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setError("");
+      await login(formData.email, formData.password);
+      // Redirect or notify on success
+      // Redirect to dashboard or home page
+      <Navigate to='/' />;
+    } catch (err) {
+      setError("Invalid email or password");
+    }
+  };
   return (
     <div className='col-md-6'>
       <div className='row justify-content-center'>
@@ -26,75 +50,37 @@ const Login = () => {
                 <h4 className='logo-title ms-3'>{appName}</h4>
               </a>
               <h2 className='mb-2 text-center'>Login</h2>
-              <p className='text-center'>Create your Hope UI account.</p>
-              <form>
-                <div className='row'>
-                  <div className='col-lg-12'>
-                    <div className='form-group'>
-                      <label htmlFor='full-name' className='form-label'>
-                        Full Name
-                      </label>
-                      <input
-                        type='text'
-                        className='form-control'
-                        id='full-name'
-                        placeholder=' '
-                      />
-                    </div>
-                  </div>
-                  <div className='col-lg-12'>
-                    <div className='form-group'>
-                      <label htmlFor='last-name' className='form-label'>
-                        Last Name
-                      </label>
-                      <input
-                        type='text'
-                        className='form-control'
-                        id='last-name'
-                        placeholder=' '
-                      />
-                    </div>
-                  </div>
-                </div>
+              {/* <p className='text-center'>Create your Hope UI account.</p> */}
+              <Form onSubmit={handleSubmit}>
+                <Row>
+                  <Input
+                    label={"Email"}
+                    placeholder={"Email"}
+                    type={"email"}
+                    name={"email"}
+                    onChange={handleChange}
+                  />
+                  <Input
+                    label={"Password"}
+                    placeholder={"Password"}
+                    type={"password"}
+                    name={"password"}
+                    onChange={handleChange}
+                  />
+                </Row>
                 <div className='d-flex justify-content-center'>
-                  <button type='submit' className='btn btn-primary'>
-                    Sign Up
-                  </button>
+                  <Button type='submit' className='btn btn-primary'>
+                    Login
+                  </Button>
                 </div>
-                <p className='text-center my-3'>
-                  or sign in with other accounts?
-                </p>
-                <div className='d-flex justify-content-center'>
-                  <ul className='list-group list-group-horizontal list-group-flush'>
-                    <li className='list-group-item border-0 pb-0'>
-                      <a href='#'>
-                        <img src='../../assets/images/brands/fb.svg' alt='fb' />
-                      </a>
-                    </li>
-                    <li className='list-group-item border-0 pb-0'>
-                      <a href='#'>
-                        <img src='../../assets/images/brands/gm.svg' alt='gm' />
-                      </a>
-                    </li>
-                    <li className='list-group-item border-0 pb-0'>
-                      <a href='#'>
-                        <img src='../../assets/images/brands/im.svg' alt='im' />
-                      </a>
-                    </li>
-                    <li className='list-group-item border-0 pb-0'>
-                      <a href='#'>
-                        <img src='../../assets/images/brands/li.svg' alt='li' />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+
                 <p className='mt-3 text-center'>
-                  Already have an Account{" "}
+                  Forgot your email or password?{" "}
                   <a href='sign-in.html' className='text-underline'>
-                    Sign In
+                    Reset it
                   </a>
                 </p>
-              </form>
+              </Form>
             </div>
           </div>
         </div>

@@ -1,13 +1,18 @@
-import { Form } from "react-bootstrap";
+import { Col, Form } from "react-bootstrap";
 
-const Input = ({ type, placeholder, label }) => {
+const Input = ({ type, label, placeholder, name, onChange }) => {
   return (
-    <Form className='form-group'>
-      <Form.Label htmlFor={label} className='form-label'>
-        {label}
-      </Form.Label>
-      <Input type={type} className='form-control' placeholder={placeholder} />
-    </Form>
+    <Col md={12}>
+      <Form.Group className='mb-3'>
+        <Form.Label>{label}</Form.Label>
+        <Form.Control
+          type={type}
+          placeholder={placeholder}
+          name={name}
+          onChange={onChange}
+        />
+      </Form.Group>
+    </Col>
   );
 };
 export default Input;
