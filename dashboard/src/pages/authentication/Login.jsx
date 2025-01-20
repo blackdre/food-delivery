@@ -3,12 +3,13 @@ import { AppContext } from "../../context/AppContext";
 import Input from "../../components/ui/Input";
 import { Button, Form, Row } from "react-bootstrap";
 import { AuthContext } from "../../context/AuthContext";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { appName, logo } = useContext(AppContext);
   const { login } = useContext(AuthContext);
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
   const [error, setError] = useState("");
 
   const handleChange = (e) => {
@@ -22,7 +23,7 @@ const Login = () => {
       await login(formData.email, formData.password);
       // Redirect or notify on success
       // Redirect to dashboard or home page
-      <Navigate to='/' />;
+      navigate("/dashboard");
     } catch (err) {
       setError("Invalid email or password");
     }

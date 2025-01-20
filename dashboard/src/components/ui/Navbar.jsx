@@ -201,9 +201,9 @@ const Navbar = () => {
                   className='theme-color-default-img img-fluid avatar avatar-50 avatar-rounded'
                 />
 
-                {/* <div className='caption ms-3 d-none d-md-block '>
+                <div className='caption ms-3 d-none d-md-block '>
                   <h6 className='mb-0 caption-title'>{user.email}</h6>
-                </div> */}
+                </div>
               </a>
               <ul
                 className='dropdown-menu dropdown-menu-end'

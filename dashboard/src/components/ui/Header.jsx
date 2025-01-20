@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
+import { AuthContext } from "../../context/AuthContext";
 
 const Header = () => {
   const { appName, bgImage } = useContext(AppContext);
+  const { user } = useContext(AuthContext);
   return (
     <div className='iq-navbar-header' style={{ height: "215px" }}>
       <div className='container-fluid iq-container'>
@@ -10,7 +12,7 @@ const Header = () => {
           <div className='col-md-12'>
             <div className='flex-wrap d-flex justify-content-between align-items-center'>
               <div>
-                <h1>Welcome!</h1>
+                <h1>Welcome! {user.name}</h1>
                 {/* <p>
                   We are on a mission to help developers like you build
                   successful projects for FREE.

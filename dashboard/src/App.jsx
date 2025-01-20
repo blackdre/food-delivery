@@ -14,7 +14,7 @@ const App = () => {
   return (
     <Routes>
       <Route element={<MainLayout />}>
-        <Route path='/' element={<Dashboard />} />
+        <Route path='/dashboard' element={<Dashboard />} />
         <Route
           path='/admin'
           element={
